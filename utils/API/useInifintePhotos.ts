@@ -1,25 +1,33 @@
 import { useInfiniteQuery } from "react-query";
 import axios from "axios";
+import format from "date-fns/format";
+import subWeeks from "date-fns/subWeeks";
+import addWeeks from "date-fns/addWeeks";
 
-const potdUrl = "https://api.nasa.gov/planetary/";
+const apodUrl = "https://api.nasa.gov/planetary/apod";
 
-export const fetchAllUsers = async (): Promise<any[]> => {
+interface QueryProps {
+  startDate?: string;
+  endDate?: string;
+}
+
+export const fetchInifitePhotos = async ({ pageParam = format(new Date(), "yyyy-MM-dd"), queryKey }: any) => {
   return await axios
-    .get(potdUrl, {
+    .get(apodUrl, {
       params: {
         api_key: `${process.env.NASA_API_KEY}`,
-        count: 7,
+        start_date: format(subWeeks(new Date(pageParam), 1), "yyyy-MM-dd"),
+        end_date: format(new Date(pageParam), "yyyy-MM-dd"),
       },
     })
-    .then((res) => res.data);
+    .then((res) => res.data.reverse());
 };
 
 const useInfinitePhotos = () =>
-  useInfiniteQuery(
-    "photos",
-    fetchAllUsers
-    // { getNextPageParam: (page) => (page.current_page === page.last_page ? undefined : page.current_page + 1) },
-    // { initialData: videos }
-  );
+  useInfiniteQuery("photos", fetchInifitePhotos, {
+    getNextPageParam: (lastPage) => {
+      return lastPage[lastPage.length - 1].date;
+    },
+  });
 
 export default useInfinitePhotos;
