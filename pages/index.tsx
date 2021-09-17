@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import type { NextPage } from "next";
 import useInfinitePhotos from "../utils/API/useInifintePhotos";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import PageLayout from "../components/commons/PageLayout";
 const Home: NextPage = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {});
@@ -14,7 +15,7 @@ const Home: NextPage = () => {
   }, [isVisible]);
 
   return (
-    <div>
+    <PageLayout>
       {data?.pages.map((page) => (
         <>
           {page.map((elem: any) => (
@@ -34,7 +35,7 @@ const Home: NextPage = () => {
         Heyyyyyyy
       </div>
       <button onClick={() => fetchNextPage()}>nextPage</button>
-    </div>
+    </PageLayout>
   );
 };
 
