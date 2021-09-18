@@ -1,9 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
-import { IMGDTO } from "../../../types";
 import useIntersectionObserver from "../../../hooks/useIntersectionObserver";
-import PhotoCard from "../../commons/PhotoCard";
-import { Dialog } from "@headlessui/react";
+import React, { useRef, useEffect, useState } from "react";
 import PhotoModal from "../../commons/PhotoModal";
+import PhotoCard from "../../commons/PhotoCard";
+import { IMGDTO } from "../../../types";
 
 interface Props {
   data: any;
@@ -27,14 +26,12 @@ export default function PhotoList({ data, fetchMorePhotos, isLoading }: Props) {
   return (
     <div className="space-y-4">
       {moreInfo && <PhotoModal img={moreInfo} onClose={unselectInfo} />}
-      {data?.pages.map((page: any, i: number) => (
-        <>
-          {page.map((elem: any) => {
-            if (elem.media_type !== "image") null;
-            else return <PhotoCard key={elem.hdurl} img={elem} onClick={() => setInfo(elem)} />;
-          })}
-        </>
-      ))}
+      {data?.pages.map((page: any) =>
+        page.map((elem: any) => {
+          if (elem.media_type !== "image") null;
+          else return <PhotoCard key={elem.hdurl} img={elem} onClick={() => setInfo(elem)} />;
+        })
+      )}
       <div ref={ref}>{isLoading ? "Loading" : ""}</div>
       <button onClick={() => fetchMorePhotos()}>nextPage</button>
     </div>

@@ -1,9 +1,10 @@
-import { useRef, useEffect } from "react";
-import type { NextPage } from "next";
 import useInfinitePhotos from "../utils/API/useInifintePhotos";
-import PageLayout from "../components/commons/PageLayout";
+import type { NextPage } from "next";
 import PhotoList from "../components/sections/PhotoList/PhotoList";
+import PageLayout from "../components/commons/PageLayout";
+import useAppState from "../hooks/useAppState";
 const Home: NextPage = () => {
+  const { likes } = useAppState();
   const { data, fetchNextPage, isLoading } = useInfinitePhotos();
 
   return (

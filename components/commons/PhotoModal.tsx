@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { IMGDTO } from "../../types";
 import Image from "next/image";
 import format from "date-fns/format";
+import useAppState from "../../hooks/useAppState";
 
 interface Props {
   img: IMGDTO | null;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function PhotoModal({ img, onClose }: Props) {
+  const { likes, removeLike, addLike } = useAppState();
   return (
     <Transition
       show={!!img}
@@ -30,6 +32,18 @@ export default function PhotoModal({ img, onClose }: Props) {
                 <div className="relative h-96 ">
                   <Image alt={img.title} src={img.url} layout="fill" objectFit="contain" />
                 </div>
+                <button
+                  onClick={() => (likes.includes(img.date) ? removeLike(img.date) : addLike(img.date))}
+                  className="absolute text-black top-1 left-1"
+                >
+                  {likes.includes(img.date) ? "UnLike" : "Like"}
+                </button>
+                <button
+                  onClick={() => navigator.clipboard.writeText(`http://localhost:3000/share/${img.date}`)}
+                  className="absolute text-black right-1"
+                >
+                  Share Link
+                </button>
                 <h1>{img.title}</h1>
                 <time>{format(new Date(img.date), "MMMM do yyyy")}</time>
                 <div>{img.explanation}</div>
