@@ -2,9 +2,7 @@ import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import format from "date-fns/format";
 import subWeeks from "date-fns/subWeeks";
-import addWeeks from "date-fns/addWeeks";
-
-const apodUrl = "https://api.nasa.gov/planetary/apod";
+import { apodUrl } from "../../constants";
 
 interface QueryProps {
   startDate?: string;
