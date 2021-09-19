@@ -4,6 +4,7 @@ import PhotoModal from "../../commons/PhotoModal";
 import PhotoCard from "../../commons/PhotoCard";
 import { IMGDTO } from "../../../types";
 import flatten from "lodash.flatten";
+import LoadingBar from "../../commons/LoadingBar";
 
 interface Props {
   data: any;
@@ -33,7 +34,7 @@ export default function PhotoList({ data, fetchMorePhotos, isLoading }: Props) {
         if (elem.media_type !== "image") null;
         else return <PhotoCard key={elem.hdurl} img={elem} onClick={() => setInfo(elem)} />;
       })}
-      <div ref={ref}>{isLoading ? "Loading" : ""}</div>
+      {fetchMorePhotos && <div ref={ref}>{isVisible && <LoadingBar />}</div>}
     </div>
   );
 }

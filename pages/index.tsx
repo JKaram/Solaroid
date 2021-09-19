@@ -94,13 +94,15 @@ const mockData = [
 
 const Home: NextPage = () => {
   const { likes } = useAppState();
-  const { data, fetchNextPage, isLoading, isError } = useInfinitePhotos();
+  const photos = useInfinitePhotos();
 
   return (
     <PageLayout>
-      {isLoading && "ISLOADING"}
-      {isError && "ISERROR"}
-      <PhotoList data={data && data.pages} fetchMorePhotos={fetchNextPage} isLoading={isLoading} />
+      <PhotoList
+        data={photos.data && photos.data.pages}
+        fetchMorePhotos={photos.fetchNextPage}
+        isLoading={photos.isLoading || photos.isFetching}
+      />
     </PageLayout>
   );
 };
