@@ -100,7 +100,7 @@ const Home: NextPage = () => {
     <PageLayout>
       {isLoading && "ISLOADING"}
       {isError && "ISERROR"}
-      <PhotoList data={mockData} fetchMorePhotos={fetchNextPage} isLoading={isLoading} />
+      <PhotoList data={data && data.pages} fetchMorePhotos={fetchNextPage} isLoading={isLoading} />
     </PageLayout>
   );
 };

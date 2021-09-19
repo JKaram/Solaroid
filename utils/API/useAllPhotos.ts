@@ -15,12 +15,11 @@ export const getLikedPhotos = async (likes) => {
 
 export default function useAllPhotos() {
   const { likes } = useAppState();
-  console.log("🚀 ~ file: useAllPhotos.ts ~ line 18 ~ useAllPhotos ~ likes ", likes);
   const likedInStorage = useReadLocalStorage("likes");
 
-  // return useQueries(
-  //   likes.map((elem, i) => {
-  //     return { queryKey: ["like", i], queryFn: fetchApod(new Date(elem)) };
-  //   })
-  // );
+  return useQueries(
+    likes.map((elem, i) => {
+      return { queryKey: ["like", elem], queryFn: () => fetchApod(elem) };
+    })
+  );
 }

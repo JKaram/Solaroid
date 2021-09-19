@@ -1,4 +1,5 @@
 import React from "react";
+import Nav from "../sections/Nav/Nav";
 
 interface Props {
   children: React.ReactNode;
@@ -7,9 +8,7 @@ interface Props {
 export default function PageLayout({ children }: Props) {
   return (
     <div className="bg-gray-800 min-h-screen">
-      <nav className="flex justify-around">
-        <div>Nav</div> <div>Likes</div>
-      </nav>
+      <Nav />
       <main className="w-100 md:max-w-2xl m-auto">{children}</main>
     </div>
   );

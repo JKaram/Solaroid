@@ -4,12 +4,12 @@ import { useQuery } from "react-query";
 import { IMGDTO } from "../../types";
 import { apodUrl } from "../../constants";
 
-export const fetchApod = async (date: Date): Promise<IMGDTO> => {
+export const fetchApod = async (date): Promise<IMGDTO> => {
   return await axios
     .get(apodUrl, {
       params: {
         api_key: `${process.env.NASA_API_KEY}`,
-        date: format(date, "yyyy-MM-dd"),
+        date: date,
       },
     })
     .then((res) => res.data);
