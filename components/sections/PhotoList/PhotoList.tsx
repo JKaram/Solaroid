@@ -27,7 +27,7 @@ export default function PhotoList({ data, fetchMorePhotos, isLoading }: Props) {
   }, [isVisible]);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-20">
       {moreInfo && <PhotoModal img={moreInfo} onClose={unselectInfo} />}
       {flattenData.map((elem: any) => {
         if (elem.media_type !== "image") null;
