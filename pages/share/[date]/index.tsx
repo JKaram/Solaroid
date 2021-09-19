@@ -17,7 +17,7 @@ export default function Share(props) {
 }
 
 export async function getServerSideProps(context) {
-  const photo = await fetchApod(new Date(context.query.date));
+  const photo = await fetchApod(context.query.date);
 
   return {
     props: { photo },
