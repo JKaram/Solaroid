@@ -10,19 +10,22 @@ interface Props {
   onClick: Function;
 }
 
+const randomColors = ["spacedarkblue", "spacepink", "spacedarkpurple", "spacedarkpink"];
+
 export default function PhotoCard({ img, onClick }: Props) {
   const { likes, addLike, removeLike } = useAppState();
   const [isShowing, setIsShowing] = useState(true);
+  const randomColor = randomColors[Math.floor(Math.random() * randomColors.length)];
   return (
     <div
-      className="relative w-full h-64 drop-shadow-2xl rounded-lg overflow-hidden cursor-pointer "
+      className={`relative  w-full h-64 md:h-96 drop-shadow-2xl rounded-lg overflow-hidden cursor-pointer `}
       onMouseOver={() => setIsShowing(true)}
       onMouseLeave={() => setIsShowing(false)}
     >
       <Image alt={img.title} src={img.url} layout="fill" objectFit="cover" onClick={() => onClick()} />
 
       <Transition
-        show={isShowing}
+        show={true}
         enter="transition-opacity duration-100 ease-out"
         enterFrom="opacity-0"
         enterTo="opacity-100"

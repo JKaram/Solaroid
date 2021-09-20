@@ -8,7 +8,7 @@ interface Props {
 export default function Nav(props: Props) {
   return (
     <nav
-      className="w-100 md:max-w-2xl m-auto flex justify-between align-middle items-center px-2 py-4 bg-gray-800 mb-4 text-white sticky top-0 z-50"
+      className="w-100 md:max-w-2xl m-auto flex justify-between align-middle items-center px-2 py-4  mb-4 text-white sticky top-0 z-50"
       {...props.rest}
     >
       <div className="">
