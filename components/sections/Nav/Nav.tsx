@@ -20,7 +20,7 @@ export default function Nav(props: Props) {
         </Link>
       </div>
       <Link href="/MyLiked">
-        <span className="text-xl text-white cursor-pointer hover:bg-green-50">My Liked</span>
+        <span className="text-xl text-white cursor-pointer hover:border-white hover:border-2">My Liked</span>
       </Link>
     </nav>
   );

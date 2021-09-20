@@ -29,8 +29,8 @@ export default function PhotoCard({ img, onClick }: Props) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="absolute flex justify-between w-full bottom-0 text-white px-2 py-4 from-black">
-          <h1>{img.title}</h1>
+        <div className="absolute flex justify-between items-center w-full bottom-0 text-white px-4 py-4 from-black">
+          <h1 className="font-bold">{img.title}</h1>
           <div>
             <button
               onClick={() => (likes.includes(img.date) ? removeLike(img.date) : addLike(img.date))}

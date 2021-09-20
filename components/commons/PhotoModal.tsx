@@ -22,7 +22,7 @@ export default function PhotoModal({ img, onClose }: Props) {
       leaveFrom="transform scale-100 opacity-100"
       leaveTo="transform scale-95 opacity-0"
     >
-      <Dialog onClose={() => onClose()} className="fixed z-10 inset-0 overflow-y-auto">
+      <Dialog onClose={() => onClose()} className="fixed z-50 inset-0 overflow-y-auto">
         <div className="flex items-center justify-center min-h-screen">
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
 

@@ -28,13 +28,15 @@ export default function PhotoList({ data, fetchMorePhotos, isLoading }: Props) {
   }, [isVisible]);
 
   return (
-    <div className="space-y-20">
-      {moreInfo && <PhotoModal img={moreInfo} onClose={unselectInfo} />}
-      {flattenData.map((elem: any) => {
-        if (elem.media_type !== "image") null;
-        else return <PhotoCard key={elem.hdurl} img={elem} onClick={() => setInfo(elem)} />;
-      })}
-      {fetchMorePhotos && <div ref={ref}>{isVisible && <LoadingBar />}</div>}
-    </div>
+    <>
+      <PhotoModal img={moreInfo} onClose={unselectInfo} />
+      <div className="space-y-20">
+        {flattenData.map((elem: any) => {
+          if (elem.media_type !== "image") null;
+          else return <PhotoCard key={elem.hdurl} img={elem} onClick={() => setInfo(elem)} />;
+        })}
+        {fetchMorePhotos && <div ref={ref}>{isVisible && <LoadingBar />}</div>}
+      </div>
+    </>
   );
 }
