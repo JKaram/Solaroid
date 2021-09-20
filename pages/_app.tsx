@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
 import AppProvider from "../context/appContext";
 import { QueryClient, QueryClientProvider } from "react-query";
