@@ -16,10 +16,11 @@ export default function PhotoList({ data, fetchMorePhotos, isLoading }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {});
   const isVisible = !!entry?.isIntersecting;
-  let [moreInfo, setMoreInfo] = useState<IMGDTO | null>(null);
+  const [moreInfo, setMoreInfo] = useState<IMGDTO>(null);
+  const [showModal, setShowModal] = useState(false);
 
   const setInfo = (img: IMGDTO) => setMoreInfo(img);
-  const unselectInfo = () => setMoreInfo(null);
+  const closeModal = () => setShowModal(false);
 
   const flattenData = flatten(data);
 
@@ -29,11 +30,21 @@ export default function PhotoList({ data, fetchMorePhotos, isLoading }: Props) {
 
   return (
     <>
-      <PhotoModal img={moreInfo} onClose={unselectInfo} />
-      <div className="space-y-20">
+      <PhotoModal showModal={showModal} img={moreInfo} onClose={closeModal} />
+      <div className="space-y-8">
         {flattenData.map((elem: any) => {
           if (elem.media_type !== "image") null;
-          else return <PhotoCard key={elem.hdurl} img={elem} onClick={() => setInfo(elem)} />;
+          else
+            return (
+              <PhotoCard
+                key={elem.hdurl}
+                img={elem}
+                onClick={() => {
+                  setInfo(elem);
+                  setShowModal(true);
+                }}
+              />
+            );
         })}
         {fetchMorePhotos && <div ref={ref}>{isVisible && <LoadingBar />}</div>}
       </div>
