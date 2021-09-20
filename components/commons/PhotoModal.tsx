@@ -38,7 +38,7 @@ export default function PhotoModal({ img, onClose, showModal }: Props) {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="relative bg-gradient-to-b from-spacedarkpurple via-spacedarkpurple to-spacedarkblue text-white rounded w-11/12 mx-auto my-4">
+            <div className="relative bg-gradient-to-b from-spacedarkpurple via-spacedarkblue to-spacedarkblue text-white rounded max-w-4xl w-11/12 2xl:w-full  my-4">
               <XIcon
                 onClick={() => onClose()}
                 className="absolute right-1
@@ -46,7 +46,7 @@ export default function PhotoModal({ img, onClose, showModal }: Props) {
               />
               {img && (
                 <>
-                  <figure className="relative h-96 ">
+                  <figure className="relative h-96 my-3">
                     <Image alt={img.title} src={img.url} width="100%" height="100%" layout="fill" objectFit="contain" />
                   </figure>
                   {/* <button
