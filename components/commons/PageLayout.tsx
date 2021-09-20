@@ -9,7 +9,7 @@ export default function PageLayout({ children }: Props) {
   return (
     <div className="bg-gray-800 h-full min-h-screen pb-16">
       <Nav />
-      <main className="w-100 md:max-w-2xl m-auto">{children}</main>
+      <main className="w-100 md:max-w-3xl m-auto">{children}</main>
     </div>
   );
 }

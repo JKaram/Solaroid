@@ -15,7 +15,7 @@ export default function Nav(props: Props) {
         <Link href="/">
           <div className="flex cursor-pointer items-center">
             <Image src="/solaroid.svg" alt="logo" width="100%" height="45" />
-            <h1 className="text-2xl m-0 font-bold">Solaroid</h1>
+            <h1 className="hidden sm:block text-2xl m-0 font-bold">Solaroid</h1>
           </div>
         </Link>
       </div>

@@ -23,7 +23,7 @@ export default function PhotoCard({ img, onClick }: Props) {
 
       <Transition
         show={isShowing}
-        enter="transition-opacity duration-100"
+        enter="transition-opacity duration-100 ease-out"
         enterFrom="opacity-0"
         enterTo="opacity-100"
         leave="transition-opacity duration-150"
