@@ -19,7 +19,6 @@ export default function MyLiked() {
   const merge = mergeQueries(photos);
   return (
     <PageLayout>
-      My Liked Page
       <PhotoList data={merge} />
     </PageLayout>
   );
