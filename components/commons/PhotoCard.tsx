@@ -18,7 +18,7 @@ export default function PhotoCard({ img, onClick }: Props) {
   const randomColor = randomColors[Math.floor(Math.random() * randomColors.length)];
   return (
     <div
-      className={`relative  w-full h-64 md:h-96 drop-shadow-2xl rounded-lg overflow-hidden cursor-pointer `}
+      className={`relative w-full h-64 md:h-96 drop-shadow-2xl rounded-lg overflow-hidden cursor-pointer `}
       onMouseOver={() => setIsShowing(true)}
       onMouseLeave={() => setIsShowing(false)}
     >

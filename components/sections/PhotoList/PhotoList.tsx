@@ -33,13 +33,6 @@ export default function PhotoList({ data, fetchMorePhotos, isLoading }: Props) {
     <>
       <PhotoModal showModal={showModal} img={moreInfo} onClose={closeModal} />
       <div className="space-y-8">
-        {!isLoading && (
-          <Empty
-            empty={!flattenData.length}
-            error={false}
-            status={"It's lonley out in space (Go like some pictures)"}
-          />
-        )}
         {flattenData.map((elem: any) => {
           if (elem.media_type !== "image") null;
           else
@@ -54,6 +47,13 @@ export default function PhotoList({ data, fetchMorePhotos, isLoading }: Props) {
               />
             );
         })}
+        {!isLoading && (
+          <Empty
+            empty={!flattenData.length}
+            error={false}
+            status={"It's lonley out in space (Go like some pictures)"}
+          />
+        )}
         {fetchMorePhotos && <div ref={ref}>{isVisible && <LoadingBar />}</div>}
       </div>
     </>

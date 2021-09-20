@@ -1,10 +1,11 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { IMGDTO } from "../../types";
 import Image from "next/image";
 import format from "date-fns/format";
 import useAppState from "../../hooks/useAppState";
 import { XIcon } from "@heroicons/react/solid";
+import addDays from "date-fns/addDays";
 
 interface Props {
   img: IMGDTO;
@@ -49,22 +50,11 @@ export default function PhotoModal({ img, onClose, showModal }: Props) {
                   <figure className="relative h-96 my-3">
                     <Image alt={img.title} src={img.url} width="100%" height="100%" layout="fill" objectFit="contain" />
                   </figure>
-                  {/* <button
-                    onClick={() => (likes.includes(img.date) ? removeLike(img.date) : addLike(img.date))}
-                    className="absolute text-black top-1 left-1"
-                  >
-                    {likes.includes(img.date) ? "UnLike" : "Like"}
-                  </button>
-                  <button
-                    onClick={() => navigator.clipboard.writeText(`http://localhost:3000/share/${img.date}`)}
-                    className="absolute text-black right-1"
-                  >
-                    Share Link
-                  </button> */}
+
                   <div className="px-2 pb-2">
                     <h1 className="text-2xl font-bold mt-1">{img.title}</h1>
                     <h2 className="text-lg mb-2">{img.copyright}</h2>
-                    <time>{format(new Date(img.date), "MMMM do yyyy")}</time>
+                    <time>{format(addDays(new Date(img.date), 1), "MMMM do yyyy")}</time>
                     <div className="mt-3">{img.explanation}</div>
                   </div>
                 </>
