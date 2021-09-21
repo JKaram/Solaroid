@@ -6,6 +6,7 @@ import format from "date-fns/format";
 import useAppState from "../../hooks/useAppState";
 import { XIcon } from "@heroicons/react/solid";
 import addDays from "date-fns/addDays";
+import { LikeButton, ShareButton } from "../commons/Buttons";
 
 interface Props {
   img: IMGDTO;
@@ -50,7 +51,8 @@ export default function PhotoModal({ img, onClose, showModal }: Props) {
                   <figure className="relative h-96 my-3">
                     <Image alt={img.title} src={img.url} width="100%" height="100%" layout="fill" objectFit="contain" />
                   </figure>
-
+                  <LikeButton date={img.date} />
+                  <ShareButton date={img.date} />
                   <div className="px-2 pb-2">
                     <h1 className="text-2xl font-bold mt-1">{img.title}</h1>
                     <h2 className="text-lg mb-2">{img.copyright}</h2>

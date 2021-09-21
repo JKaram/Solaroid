@@ -3,8 +3,8 @@ import Image from "next/image";
 import { IMGDTO } from "../../types";
 import useAppState from "../../hooks/useAppState";
 import { Transition } from "@headlessui/react";
-import { HeartIcon, ClipboardCopyIcon } from "@heroicons/react/solid";
-
+import { ClipboardCopyIcon } from "@heroicons/react/solid";
+import { LikeButton, ShareButton } from "../commons/Buttons";
 interface Props {
   img: IMGDTO;
   onClick: Function;
@@ -36,20 +36,8 @@ export default function PhotoCard({ img, onClick }: Props) {
         <div className="absolute flex flex-col md:flex-row justify-start md:justify-between  w-full bottom-0 text-white px-4 py-4 bg-gradient-to-t from-black to-transparent">
           <h1 className="font-bold text-xl">{img.title}</h1>
           <div className="flex space-x-1">
-            <button
-              onClick={() => (likes.includes(img.date) ? removeLike(img.date) : addLike(img.date))}
-              className="flex items-center text-sm text-gray-200 px-1  rounded-md bg-white bg-opacity-25 hover:bg-opacity-50 active:bg-opacity-75 transition-all"
-            >
-              <HeartIcon className="h-4 w-4 text-red-500" />
-              {likes.includes(img.date) ? "UnLike" : "Like"}
-            </button>
-            <button
-              onClick={() => navigator.clipboard.writeText(`http://localhost:3000/share/${img.date}`)}
-              className="flex items-center text-gray-200 px-3 py-2 rounded-md bg-white bg-opacity-25 hover:bg-opacity-50 active:bg-opacity-75 transition-all text-white"
-            >
-              <ClipboardCopyIcon className="h-5 w-5 text-blue-500" />
-              Share Link
-            </button>
+            <LikeButton date={img.date} />
+            <ShareButton date={img.date} />
           </div>
         </div>
       </Transition>
