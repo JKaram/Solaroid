@@ -11,9 +11,11 @@ export default function Share(props) {
     <PageLayout>
       <div className="relative h-96 ">
         <Image alt={photo.title} src={photo.url} layout="fill" objectFit="contain" />
+      </div>{" "}
+      <div className="flex space-x-2 justify-center my-2">
+        <LikeButton date={photo.date} />
+        <ShareButton date={photo.date} />
       </div>
-      <LikeButton date={photo.date} />
-      <ShareButton date={photo.date} />
       <div className="mt-3 px-2">
         <h1 className="text-2xl font-bold">{photo.title}</h1>
         <div>{photo.copyright}</div>

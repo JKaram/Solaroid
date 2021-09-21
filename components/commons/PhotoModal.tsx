@@ -1,12 +1,12 @@
+import useAppState from "../../hooks/useAppState";
 import React, { Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { IMGDTO } from "../../types";
 import Image from "next/image";
 import format from "date-fns/format";
-import useAppState from "../../hooks/useAppState";
-import { XIcon } from "@heroicons/react/solid";
 import addDays from "date-fns/addDays";
+import { XIcon } from "@heroicons/react/solid";
 import { LikeButton, ShareButton } from "../commons/Buttons";
+import { IMGDTO } from "../../types";
+import { Dialog, Transition } from "@headlessui/react";
 
 interface Props {
   img: IMGDTO;
@@ -44,15 +44,18 @@ export default function PhotoModal({ img, onClose, showModal }: Props) {
               <XIcon
                 onClick={() => onClose()}
                 className="absolute right-1
-                 h-6 w-6 cursor-pointer z-50 text-red-500 hover:text-red-900"
+                 h-8 w-8 cursor-pointer z-50 text-red-500 hover:text-red-900"
               />
               {img && (
                 <>
                   <figure className="relative h-96 my-3">
                     <Image alt={img.title} src={img.url} width="100%" height="100%" layout="fill" objectFit="contain" />
                   </figure>
-                  <LikeButton date={img.date} />
-                  <ShareButton date={img.date} />
+                  <div className="flex space-x-2 justify-center">
+                    <LikeButton date={img.date} />
+                    <ShareButton date={img.date} />
+                  </div>
+
                   <div className="px-2 pb-2">
                     <h1 className="text-2xl font-bold mt-1">{img.title}</h1>
                     <h2 className="text-lg mb-2">{img.copyright}</h2>
