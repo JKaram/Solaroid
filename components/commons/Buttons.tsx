@@ -37,7 +37,7 @@ export function ShareButton(props) {
     <button
       onClick={() => {
         setCopied(true);
-        copy(`http://localhost:3000/share/${date}`);
+        copy(`${process.env.COPY_URL}${date}`);
       }}
       className="flex items-center"
     >
