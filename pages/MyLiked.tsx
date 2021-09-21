@@ -1,6 +1,5 @@
+import useAllPhotos from "../utils/API/useAllPhotos";
 import React from "react";
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
-import useAllPhotos, { getLikedPhotos } from "../utils/API/useAllPhotos";
 import PhotoList from "../components/sections/PhotoList/PhotoList";
 import PageLayout from "../components/commons/PageLayout";
 

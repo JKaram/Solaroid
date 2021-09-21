@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import React, { useRef } from "react";
 import Nav from "../sections/Nav/Nav";
 
 interface Props {
