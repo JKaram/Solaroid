@@ -4,10 +4,10 @@
 
 ## Features
 
-- Infinate Scrolling
+- Infinite Scrolling
 - Like photos are saved even on refresh
-- Sharable links
-- Fully styled by myself useing tailwind CSS with a little help from Headless UI.
+- Shareable links
+- Fully styled by myself using tailwind CSS with a little help from Headless UI.
 
 ## Lessons Learned
 
