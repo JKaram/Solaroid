@@ -47,6 +47,7 @@ export default function PhotoList({ data, fetchMorePhotos, isLoading }: Props) {
               />
             );
         })}
+
         {!isLoading && (
           <Empty
             empty={!flattenData.length}

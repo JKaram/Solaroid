@@ -10,7 +10,7 @@ export function LikeButton(props) {
   return (
     <button
       onClick={() => (likes.includes(date) ? removeLike(date) : addLike(date))}
-      className={`flex items-center  rounded px-2 border-2 bg-spacepink border-spacepink bg-opacity-30 transition-all hover:bg-opacity-60 ${
+      className={`flex items-center md:text-xl rounded px-2 border-2 bg-spacepink border-spacepink bg-opacity-30 transition-all hover:bg-opacity-60 ${
         isLiked && "bg-white border-white"
       }`}
     >
@@ -22,7 +22,7 @@ export function LikeButton(props) {
 
 export function ShareButton(props) {
   const { date } = props;
-  const [value, copy] = useCopyToClipboard();
+  const [, copy] = useCopyToClipboard();
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export function ShareButton(props) {
         setCopied(true);
         copy(`${process.env.COPY_URL}${date}`);
       }}
-      className="flex items-center"
+      className="flex items-center md:text-xl"
     >
       <ClipboardCopyIcon className={`h-5 w-5 ${copied ? "text-spacepink" : "text-white"}`} />
       {copied && <span className="text-spacepink">Copied!</span>}
