@@ -11,7 +11,7 @@
 
 ## Lessons Learned
 
-On this project I wanted to challenge myself with an inifiate scrolling feature. I started by learning the [Intersection Observer API](https://developer.mozilla.org/fr/docs/Web/API/Intersection_Observer_API) which is placed at the bottom of the photos list and once seen fetches the next 7 days. . Useing React Query to set markers to load the next 7 images once the user scolls to the bottom of the page.
+On this project I wanted to challenge myself with an infinite scrolling feature. I started by learning the [Intersection Observer API](https://developer.mozilla.org/fr/docs/Web/API/Intersection_Observer_API) which is placed at the bottom of the photos list and once seen fetches the next 7 days. . Using React Query to set markers to load the next 7 images once the user scrolls to the bottom of the page.
 
 ## Dependencies
 
