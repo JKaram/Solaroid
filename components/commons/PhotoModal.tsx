@@ -49,7 +49,7 @@ export default function PhotoModal({ img, onClose, showModal }: Props) {
               {img && (
                 <>
                   <figure className="relative h-96 my-3">
-                    <Image alt={img.title} src={img.url} width="100%" height="100%" layout="fill" objectFit="contain" />
+                    <Image alt={img.title} src={img.url} layout="fill" objectFit="contain" />
                   </figure>
                   <div className="flex space-x-2 mb-4 justify-center">
                     <LikeButton date={img.date} />
