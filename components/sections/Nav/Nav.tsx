@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 interface Props {
-  //   children: React.ReactNode;
   isScroll: boolean;
   rest?: any;
 }
@@ -12,7 +11,7 @@ export default function Nav(props: Props) {
   const { isScroll = true } = props;
   return (
     <nav
-      className={`w-100  m-auto flex justify-between align-middle items-end py-4 mb-4 text-white sticky top-0 z-50 transition-all  ${
+      className={`w-100  m-auto flex justify-between align-middle items-end py-4 mb-4 text-white sticky top-0 z-50 transition-all duration-200  ${
         !isScroll && "bg-spacedarkpurple shadow-2xl"
       } `}
       {...props.rest}
